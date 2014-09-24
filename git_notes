@@ -1,0 +1,24 @@
+
+# check if the ssh keys are generated in remote
+cd ~/.ssh/
+less id_rsa.pub
+# manually copy the keys and add into your github account in settings > add keys
+
+# check if key added correctly 
+ssh -T git@github.com
+>> Hi lev2cu! You've successfully authenticated, but GitHub does not provide shell access.
+
+#create a REPO:
+curl -u 'lev2cu' https://api.github.com/user/repos -d '{"name":"Hadoo_tom,"}'
+# provide your password for github
+
+#clone the new Repo
+git clone git@github.com:lev2cu/Hadoo_tom-.git
+
+# create & update files
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:lev2cu/Hadoo_tom-.git
+git push -u origin master
